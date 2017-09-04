@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -76,11 +77,47 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div id="wrapper" class="active">
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav">
+                <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+            </ul>
+            <ul class="sidebar-nav" id="sidebar">
+                <li><a href="{{ url('/catempleado') }}">Colaboradores<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="{{ url('/list') }}">Reportes<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            </ul>
+        </div>
+        @yield('content')
+    </div>
 </div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/navbar.js') }}"></script>
+<script src="{{ asset('js/toastr.js') }}"></script>
+<script>
+            @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
+</script>
 </body>
 </html>
