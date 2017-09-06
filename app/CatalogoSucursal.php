@@ -12,5 +12,4 @@ protected $fillable = [
 ];
     protected $table = 'catsucursal';
 
-
 }

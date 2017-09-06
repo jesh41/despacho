@@ -11,6 +11,11 @@ class catsucursalseed extends Seeder
      */
     public function run()
     {
-        //
+        $array = ["Casa Matriz", "Santo Domingo", "Tiscapa"];
+        for ($i = 0; $i < 3; $i++) {
+            DB::table('catsucursal')->insert([
+                'nombre' => $array[$i],
+            ]);
+        }
     }
 }

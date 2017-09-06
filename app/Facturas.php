@@ -13,4 +13,11 @@ class Facturas extends Model
         return $this->hasOne('App\CatalogoSucursal','id','sucursal_id');
     }
 
+    public function estadoFactura()
+    {
+        return $this->hasOne('App\CatEstadoFactura','CodEstado','CodEstado');
+    }
+
+
+
 }
