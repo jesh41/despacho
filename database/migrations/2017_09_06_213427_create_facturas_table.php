@@ -19,11 +19,9 @@ class CreateFacturasTable extends Migration
             $table->string('Nombre');
             $table->integer('sucursal_id')->unsigned();
             $table->foreign('sucursal_id')->references('id')->on('catsucursal');
-
            $table->char('CodValidoFact');
            $table->foreign('CodValidoFact')->references('CodEstado')->on('CatEstadoFact');
            $table->timestamps();
-
         });
     }
 

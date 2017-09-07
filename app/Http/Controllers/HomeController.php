@@ -25,9 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-      /**  $estado = DB::connection('sqlsrv')->select('select * from Inventario.CatEstadoFactura');
-        return view('home', ['es' => $estado]);
-       * **/
-        return view('home');
+        $consulta = DB::connection('sqlsrv')->select('select FechaFactura,NoFactura,NombreClientePreFac,CodSucursal,CodValidoFact from Inventario.Facturas
+where (CONVERT(DATE,FechaFactura) BETWEEN \'20170907\' AND \'20170907\')order by NoFactura desc');
+        return view('home', ['es' => $consulta]);
+
+     //   return view('home');
     }
 }
