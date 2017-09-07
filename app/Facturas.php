@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facturas extends Model
 {
-    protected $table = 'factura';
+    protected $table = 'facturas';
 
     public function sucursal()
     {
         return $this->hasOne('App\CatalogoSucursal','id','sucursal_id');
     }
 
-    public function estadoFactura()
+    public function estado()
     {
-        return $this->hasOne('App\CatEstadoFactura','CodEstado','CodEstado');
+        return $this->hasOne('App\CatEstadoFactura','CodEstado','CodValidoFact');
     }
 
 

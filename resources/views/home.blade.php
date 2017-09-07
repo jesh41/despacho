@@ -8,6 +8,14 @@
 
             <div class="box-header">
 
+                <h4 class="box-title">Facturas</h4>
+                <div class="margin" id="botones_control">
+                    <a href="{{ url("carga") }}" class="btn btn-xs btn-primary">Actualizar</a>
+                  <!--  <a href="{{ url("/listado_usuarios") }}"  class="btn btn-xs btn-primary" >Listado Usuarios</a>-->
+                    <a href="javascript:void(0);" class="btn btn-xs btn-primary" onclick="cargar_formulario(2);">Vacio</a>
+                    <a href="javascript:void(0);" class="btn btn-xs btn-primary" onclick="cargar_formulario(3);" >Vacio</a>
+                </div>
+
 
             </div>
 
@@ -30,14 +38,11 @@
                         <tbody>
                         @foreach($es as $fact)
                             <tr role="row" class="odd">
-                                <td> {{ $fact->FechaFactura}}  </td>
-                                <td>{{ $fact->NoFactura }}</td>
-                                <td>{{ $fact->NombreClientePreFac  }}</td>
-                                <td>{{ $fact->CodSucursal }}</td>
-
-                                <td> {{ $fact->CodValidoFact }}   </td>
-
-
+                                <td> {{ $fact->Fecha}}</td>
+                                <td>{{ $fact->Factura }}</td>
+                                <td>{{ $fact->Nombre}}</td>
+                                <td>{{ $fact->sucursal->nombre}}</td>
+                                <td>{{ $fact->estado->DesEstado}}</td>
                             </tr>
                         @endforeach
 
@@ -47,9 +52,6 @@
 
                 </div>
             </div>
-
-
-
 
 
 
