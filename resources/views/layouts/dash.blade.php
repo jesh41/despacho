@@ -85,8 +85,8 @@
                 <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
             </ul>
             <ul class="sidebar-nav" id="sidebar">
-                <li><a href="{{ url('/') }}">Dashboard<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
-                <li><a href="{{ url('/') }}">Reportes<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="{{ url('/') }}">Pendiente<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="{{ url('/historial') }}">Historial<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
             </ul>
         </div>
         @yield('content')

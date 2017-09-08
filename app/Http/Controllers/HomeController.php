@@ -29,20 +29,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $fa=Facturas::all();
+        $fa=Facturas::orderbyDesc('Fecha')->get();
       return view('home', ['es' => $fa]);
 
     }
 
     public function carga()
     {
+        $hoy = date("Ymd");
        $contador=0;
-        $consulta = DB::connection('sqlsrv')->select('select FechaFactura,NoFactura,NombreClientePreFac,CodSucursal,CodValidoFact from Inventario.Facturas
-where (CONVERT(DATE,FechaFactura) BETWEEN \'20170907\' AND \'20170907\')order by NoFactura desc');
+        $consulta = DB::connection('sqlsrv')->select("select FechaFactura,NoFactura,NombreClientePreFac,CodSucursal,CodValidoFact from Inventario.Facturas
+where (CONVERT(DATE,FechaFactura) BETWEEN '$hoy' AND '$hoy')order by NoFactura desc");
 
 foreach ($consulta as $c)
     {
         $count = Facturas::where('Factura', $c->NoFactura)->count();
+        $copia = Facturas::find( $c->NoFactura);
+        // $copia = Facturas::where('Factura', $c->NoFactura);
+        if ($copia!=null)
+        {
+            if (strcmp( $copia->CodValidoFact,$c->CodValidoFact)!== 0)
+            {
+                $copia->CodValidoFact=$c->CodValidoFact;
+                $copia->save();
+            }
+        }
         if ($count<1)
         {
                  $f =new Facturas;
@@ -73,8 +84,6 @@ foreach ($consulta as $c)
                 'alert-type' => 'success',
             ];
         }
-
-
         return back()->with($notificacion);
 
     }

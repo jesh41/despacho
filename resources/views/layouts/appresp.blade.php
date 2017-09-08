@@ -24,13 +24,13 @@ background-color:#efefef;
 </head>
 <body>
 <header id="app">
-    <div class="row">
+
         <div class="col-md-4 col-md-offset-4">
             <a href="{{ route('login') }}">
                 <img class="img-responsive center-block" style="width: 25%; height: 25%" src="{{asset('img/logo.png') }}" alt="">
             </a>
         </div>
-    </div>
+
 
 </header>
 <main>
