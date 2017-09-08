@@ -47,7 +47,7 @@
                                 <td>{{ $fact->sucursal->nombre}}</td>
                                 <td>{{ $fact->estado->DesEstado}}</td>
                                 <td>{{ $fact->despacho->estado}}</td>
-                                <td><button type="submit">TEST</button></td>
+                                <td> <a id="modal-672003" href="#modal-container-672003" role="button" class="btn" data-toggle="modal">TeS</a></td>
 
                             </tr>
                         @endforeach

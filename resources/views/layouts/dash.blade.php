@@ -17,10 +17,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
 <body>
 <div id="app">
+
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -76,6 +78,42 @@
             </div>
         </div>
     </nav>
+
+
+
+    <div class="modal fade" id="modal-container-672003" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        MARCAR COMO ENTREGADO
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    DESEA MARCAR LA FACTURA COMO ENTREGADO?
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                       CANCELAR
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        DESPACHAR
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
 
     <div id="wrapper" class="active">
         <!-- Sidebar -->
