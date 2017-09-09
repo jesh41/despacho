@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Facturas;
 use app\CatEstadoFactura;
 use App\CatalogoSucursal;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\EventListener\SaveSessionListener;
+
 
 class HomeController extends Controller
 {
@@ -29,7 +31,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $fa=Facturas::orderbyDesc('Fecha')->get();
+
+        $fa=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->orderbyDesc('Fecha')->get();
       return view('home', ['es' => $fa]);
 
     }
