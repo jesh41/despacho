@@ -30,20 +30,22 @@ class DespachoController extends Controller
     public function despachar(Request $request)
     {
         $des = Facturas::find($request->input("id_factura"));
-        $des->estado_id=2;
-        if ($des->save())
+        if ($des->estado_id==1)
         {
+            $des->estado_id=2;
             $notificacion = [
                 'message' => 'FACTURA DESPACHADA',
                 'alert-type' => 'success',
             ];
         }
-        else{
+        elseif ($des->estado_id==2)
+        {
             $notificacion = [
-                'message' => 'OCURRIO UN PROBLEMA',
-                'alert-type' => 'error',
+                'message' => 'FACTURA YA FUE DESPACHADA',
+                'alert-type' => 'warning',
             ];
         }
+        $des->save();
 
 
         return back()->with($notificacion);
