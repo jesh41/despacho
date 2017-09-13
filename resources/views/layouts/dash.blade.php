@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="{{asset('img/logo.png') }}"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>@yield('pageTitle') - RRHH</title>
+    <title>@yield('pageTitle') - Despacho</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -44,7 +44,7 @@
         <!-- Sidebar -->
         <div class="sidebar" data-color="blue" data-image="{{asset('img/sidebar-4.jpg') }}"> <!--DIV DE BARRA LATERAL-->
             <div class="logo"> <!--DIV PARA ACOMODAR LOGO EN LATERAL-->
-                <a href="{{ asset('home') }}"> <!--REDIRECCION A HOME-->
+                <a href="{{ url('/') }}"> <!--REDIRECCION A HOME-->
                     <img src="{{asset('img/logoalvia.png') }}" class="img-responsive" alt="">
                 </a> <!--CIERRE DE REDIRECCION A HOME-->
             </div> <!--CIERRE DIV PARA ACOMODAR LOGO EN LATERAL-->
@@ -52,21 +52,15 @@
             <div class="sidebar-wrapper"> <!--DIV DE MENU LATERAL-->
                 <ul class="nav"> <!--LISTA DESORDENADA-->
                     <li>
-                        <a href="{{ asset('home') }}">
+                        <a href="{{ url('/') }}">
                             <i class="material-icons">home</i>
-                            <p>Inicio</p>
+                            <p>Facturas Pendientes</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/catempleado') }}">
-                            <i class="material-icons">people</i>
-                            <p>Registrar Colaborador</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/list') }}">
+                        <a href="{{ url('/historial') }}">
                             <i class="material-icons">folder_shared</i>
-                            <p>Lista de Colaboradores</p>
+                            <p>Facturas Despachadas</p>
                         </a>
                     </li>
                 </ul> <!--CIERRE DE LISTA DESORDENADA-->
