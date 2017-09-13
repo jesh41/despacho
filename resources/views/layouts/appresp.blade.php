@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="{{asset('img/logo.png') }}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>@yield('pageTitle') - Despacho</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+
+    <!--  Material Dashboard CSS  -->
+    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet">
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
-<!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <style>body{
-background-color:#efefef;
-}
-</style>-->
-
+            background-color:#efefef;
+        }
+    </style>
 </head>
 <body>
-<header id="app">
-
-        <div class="col-md-4 col-md-offset-4">
-            <a href="{{ route('login') }}">
-                <img class="img-responsive center-block" style="width: 25%; height: 25%" src="{{asset('img/logo.png') }}" alt="">
-            </a>
-        </div>
-
-
+<header>
+    <div class="col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 col-xs-12"> <!--DIV DE CENTRADO-->
+        <a href="{{ route('login') }}">
+            <img class="img-responsive center-block" style="width: 35%; height: 35%" src="{{asset('img/logo.png') }}" alt="">
+        </a>
+    </div><!--CIERRE DE DIV DE CENTRADO-->
 </header>
-<main>
-    @yield('content')
-</main>
+
+@yield('content')
 
 <footer>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <h5 class="text-center">Powered by IT Alvia Comercial &copy 2017, All rights reserved.</h5>
-        </div>
+    <div col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 col-xs-12> <!--DIV DE CENTRADO-->
+        <h6 class="text-center">Powered by IT Alvia Comercial &copy 2017.</h6>
+        <h6 class="text-center">All rights reserved.</h6>
+    </div><!--CIERRE DE DIV DE CENTRADO-->
 </footer>
-
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/navbar.js') }}"></script>
 </body>
+
+<!--   Core JS Files   -->
+<script src="{{asset('js/jquery-3.1.0.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/material.min.js')}}" type="text/javascript"></script>
+
+
+<!--  Notifications Plugin    -->
+<script src="{{asset('js/bootstrap-notify.js')}}"></script>
+
+<!-- Material Dashboard javascript methods -->
+<script src="{{asset('js/material-dashboard.js')}}"></script>
 </html>

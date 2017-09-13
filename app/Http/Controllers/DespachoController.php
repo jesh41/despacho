@@ -15,7 +15,7 @@ class DespachoController extends Controller
 
     public function historial()
     {
-        $fa=Facturas::where('estado_id',2)->get();
+        $fa=Facturas::where('estado_id',2)->paginate(10)->get();
 
         //orderbyDesc('Fecha')->get();
         return view('Despacho.historial', ['es' => $fa]);
