@@ -101,9 +101,12 @@
                             </div>
                         </div>
                     </div>
+
+                    {{ $es->links() }}
                 </div>
             </div>
         </div>
+
     </div>
 
 
