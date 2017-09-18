@@ -160,23 +160,29 @@
             success: function(res) {
                 console.log(res)
                 var tabla= '';
-                for (i=0;i<res.nombre.length;i++){
+                for (i=0;i<res.nombre.data.length;i++){
                     tabla += '<tr role="row" class="odd">';
-                    tabla += '<td align="center">'+res.nombre[i].id+'</td>';
-                    tabla += '<td align="center">'+res.nombre[i].nombre+'</td>';
-                    tabla += '<td align="center">'+res.nombre[i].cedula+'</td>';
-                    tabla += '<td align="center">'+res.nombre[i].fechaingreso+'</td>';
-                    tabla += '<td align="center">'+res.nombre[i].sucursal+'</td>';
-                    tabla += '<td align="center">'+res.nombre[i].fechacumple+'</td>';
-                    switch (res.nombre[i].estado){
-                        case "Activo":
+                    tabla += '<td align="center">'+res.nombre.data[i].Factura+'</td>';
+                    tabla += '<td align="center">'+res.nombre.data[i].Nombre+'</td>';
+                    tabla += '<td align="center">'+res.nombre.data[i].sucursal_id+'</td>';
+                    tabla += '<td align="center">'+res.nombre.data[i].DesEstado+'</td>';
+                    switch (res.nombre.data[i].estado){
+                        case "ENTREGADA":
                             tabla += '<td><i class="material-icons btn-success">check</i></td>';
                             break;
-                        case "Inactivo":
+                        case "PENDIENTE":
                             tabla += '<td><i class="material-icons btn-danger">close</i></td>';
                             break;
                     }
-                    tabla += '<td class="td-actions text-center"> <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-simple btn-xs"> <i class="material-icons">edit</i> </button> <button type="button" rel="tooltip" title="Inactivar" class="btn btn-danger btn-simple btn-xs"> <i class="material-icons">close</i> </button> </td>';
+                    tabla += '<td class="td-actions text-center"> <a id="modal-672003"\n' +
+                        '                                                       href="/form_despacho/{{ $fact->Factura }}"\n' +
+                        '                                                       data-target="#modal-container-829890"\n' +
+                        '                                                       role="button"\n' +
+                        '                                                       data-toggle="modal"\n' +
+                        '                                                       rel="tooltip"\n' +
+                        '                                                       title="Marcar como Entregada">\n' +
+                        '                                                        <i class="material-icons">check_box</i>\n' +
+                        '                                                    </a></td>';
                 }
                 tabla += '</tr>';
                 $('#tbusqueda').html(tabla)

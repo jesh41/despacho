@@ -25,4 +25,5 @@ Route::get('carga', 'HomeController@carga');
 Route::get('/historial', 'DespachoController@historial');
 Route::get('/form_despacho/{arg}', 'DespachoController@formdespacho');
 Route::post('/despachar', 'DespachoController@despachar');
+Route::get('/busqueda', 'HomeController@busqueda');
 });

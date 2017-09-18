@@ -40,9 +40,10 @@ class HomeController extends Controller
     public function carga()
     {
         $hoy = date("Ymd");
-       $contador=0;
-        $consulta = DB::connection('sqlsrv')->select("select FechaFactura,NoFactura,NombreClientePreFac,CodSucursal,CodValidoFact from Inventario.Facturas
-where (CONVERT(DATE,FechaFactura) BETWEEN '$hoy' AND '$hoy')order by NoFactura desc");
+        $contador=0;
+        $consulta = DB::connection('sqlsrv')->
+        select("select FechaFactura,NoFactura,NombreClientePreFac,CodSucursal,CodValidoFact from Inventario.Facturas
+        where (CONVERT(DATE,FechaFactura) BETWEEN '$hoy' AND '$hoy')order by NoFactura desc");
 
 foreach ($consulta as $c)
     {
@@ -89,6 +90,18 @@ foreach ($consulta as $c)
         }
         return back()->with($notificacion);
 
+    }
+
+    public function busqueda (Request $request)
+    {
+        $busqueda = is_null($request->busqueda) ? '%' : '%'.$request->busqueda.'%';
+
+        $busqueda=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->
+        where(function ($query) use ($busqueda) {
+            $query->where('Factura', 'LIKE', $busqueda)->orwhere('Nombre', 'LIKE', $busqueda);})->
+        orderbyDesc('Fecha')->with()->paginate(10);
+
+        return response() ->json(['nombre' => $busqueda]);
     }
 
 

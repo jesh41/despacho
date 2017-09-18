@@ -1,5 +1,5 @@
 @extends('layouts.dash')
-
+@section('pageTitle','Facturas Pendientes')
 @section('content')
 
     <nav class="navbar navbar-transparent navbar-absolute">
@@ -69,39 +69,55 @@
                                     <table class="table table-hover table-striped" cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
-                                            <th>Fecha Fac</th>
-                                            <th>Factura</th>
-                                            <th>Nombre</th>
-                                            <th>Sucursal</th>
-                                            <th>Estado</th>
-                                            <th>Despacho</th>
-                                            <th>Accion</th>
+                                            <th class="text-center">Factura</th>
+                                            <th class="text-center">Nombre</th>
+                                            <th class="text-center">Sucursal</th>
+                                            <th class="text-center">Estado</th>
+                                            <th class="text-center">Despacho</th>
+                                            <th class="text-center">Accion</th>
 
 
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tbusqueda">
                                         @foreach($es as $fact)
                                             <tr role="row" class="odd">
-                                                <td> {{ $fact->Fecha}}</td>
-                                                <td>{{ $fact->Factura }}</td>
-                                                <td>{{ $fact->Nombre}}</td>
-                                                <td>{{ $fact->sucursal->nombre}}</td>
-                                                <td>{{ $fact->estado->DesEstado}}</td>
-                                                <td>{{ $fact->despacho->estado}}</td>
-                                                <td><a id="modal-672003"  href="/form_despacho/{{ $fact->Factura }}" data-target="#modal-container-829890" role="button" class="btn" data-toggle="modal">TeS</a></td>
-
+                                                <td align="right">{{ $fact->Factura }}</td>
+                                                <td align="center">{{ $fact->Nombre}}</td>
+                                                <td align="center">{{ $fact->sucursal->nombre}}</td>
+                                                <td align="center">{{ $fact->estado->DesEstado}}</td>
+                                                <td align="center">
+                                                    <?php
+                                                    //{{ $fact->despacho->estado}}
+                                                    switch($fact->despacho->estado){
+                                                        case "PENDIENTE":
+                                                            echo '<i class="material-icons btn-danger">close</i>';
+                                                            break;
+                                                        case "ENTREGADA":
+                                                            echo '<i class="material-icons btn-success">check</i>';
+                                                            break;
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td align="center">
+                                                    <a id="modal-672003"
+                                                       href="/form_despacho/{{ $fact->Factura }}"
+                                                       data-target="#modal-container-829890"
+                                                       role="button"
+                                                       data-toggle="modal"
+                                                       rel="tooltip"
+                                                       title="Marcar como Entregada">
+                                                        <i class="material-icons">check_box</i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
-
-
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     {{ $es->links() }}
                 </div>
             </div>

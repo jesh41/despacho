@@ -1,5 +1,5 @@
 @extends('layouts.dash')
-
+@section('pageTitle','Facturas Entregadas')
 @section('content')
 
     <nav class="navbar navbar-transparent navbar-absolute"> <!-- Barra de navegación con funciones de menu -->
