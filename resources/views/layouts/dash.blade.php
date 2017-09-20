@@ -139,57 +139,7 @@
     });
 </script>
 
-<script>
 
-    function search() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        })
-        var _token = $("input[name=_token]").val();
-        var busqueda = document.getElementById("busqueda").value;
-        console.log(_token)
-        console.log(busqueda)
-        $.ajax({
-            type: "GET",
-            dataType: 'json',
-            url: '{!! url('/busqueda') !!}',
-            cache: false,
-            data: {busqueda:busqueda},
-            success: function(res) {
-                console.log(res)
-                var tabla= '';
-                for (i=0;i<res.nombre.data.length;i++){
-                    tabla += '<tr role="row" class="odd">';
-                    tabla += '<td align="center">'+res.nombre.data[i].Factura+'</td>';
-                    tabla += '<td align="center">'+res.nombre.data[i].Nombre+'</td>';
-                    tabla += '<td align="center">'+res.nombre.data[i].sucursal_id+'</td>';
-                    tabla += '<td align="center">'+res.nombre.data[i].DesEstado+'</td>';
-                    switch (res.nombre.data[i].estado){
-                        case "ENTREGADA":
-                            tabla += '<td><i class="material-icons btn-success">check</i></td>';
-                            break;
-                        case "PENDIENTE":
-                            tabla += '<td><i class="material-icons btn-danger">close</i></td>';
-                            break;
-                    }
-                    tabla += '<td class="td-actions text-center"> <a id="modal-672003"\n' +
-                        '                                                       href="/form_despacho/{{ $fact->Factura }}"\n' +
-                        '                                                       data-target="#modal-container-829890"\n' +
-                        '                                                       role="button"\n' +
-                        '                                                       data-toggle="modal"\n' +
-                        '                                                       rel="tooltip"\n' +
-                        '                                                       title="Marcar como Entregada">\n' +
-                        '                                                        <i class="material-icons">check_box</i>\n' +
-                        '                                                    </a></td>';
-                }
-                tabla += '</tr>';
-                $('#tbusqueda').html(tabla)
-            }
-        });
-    }
-</script>
 
 </body>
 </html>

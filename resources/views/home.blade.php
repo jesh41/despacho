@@ -81,6 +81,7 @@
                                         </thead>
                                         <tbody id="tbusqueda">
                                         @foreach($es as $fact)
+                                            @if ($fact->despacho->estado=="PENDIENTE")
                                             <tr role="row" class="odd">
                                                 <td align="right">{{ $fact->Factura }}</td>
                                                 <td align="center">{{ $fact->Nombre}}</td>
@@ -111,6 +112,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
+                                            @endif
                                         @endforeach
                                         </tbody>
                                     </table>
