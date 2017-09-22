@@ -57,7 +57,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">face</i>
+                    </div>
                     <div class="card-content">
+                        <h4 class="card-title">PANEL DE USUARIOS</h4>
                         <div class="tab-content">
                             <div class="tab-pane active table-responsive">
                                 <table class="table table-hover table-striped" cellspacing="0" width="100%">
@@ -104,7 +108,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">mail_outline</i>
+                    <i class="material-icons">add</i>
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">ASIGNAR ROL</h4>
@@ -134,10 +138,11 @@
             </div>
         </div>
 
+
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">mail_outline</i>
+                    <i class="material-icons">remove</i>
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">QUITAR ROL</h4>
