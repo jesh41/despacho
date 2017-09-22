@@ -29,10 +29,11 @@ Route::get('/form_despacho/{arg}', 'DespachoController@formdespacho');
 Route::post('/despachar', 'DespachoController@despachar');
 Route::get('/busqueda', 'HomeController@busqueda');
 
-    Route::group(['middleware' => ['role:Administrator']], function () {
+   // Route::group(['middleware' => ['role:Administrator']], function () {
         Route::get('/roles', 'RolesController@index');
         Route::post('/Asignar', 'RolesController@asignarol');
-    });
+    Route::post('/quitar', 'RolesController@quitarol');
+    //});
 
 
 
