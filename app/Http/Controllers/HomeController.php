@@ -29,13 +29,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
 
-        $fa=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->orderbyDesc('Fecha')->paginate(10);
-      return view('home', ['es' => $fa]);
-
-    }
 
     public function carga()
     {

@@ -20,10 +20,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/home', 'DespachoController@index')->name('home');
 Route::get('carga', 'HomeController@carga');
 Route::get('/historial', 'DespachoController@historial');
 Route::get('/form_despacho/{arg}', 'DespachoController@formdespacho');
 Route::post('/despachar', 'DespachoController@despachar');
 Route::get('/busqueda', 'HomeController@busqueda');
+
+    Route::group(['middleware' => ['role:Administrator']], function () {
+        Route::get('/roles', 'RolesController@index');
+        Route::post('/Asignar', 'RolesController@asignarol');
+    });
+
+
+
 });

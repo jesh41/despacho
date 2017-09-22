@@ -63,6 +63,14 @@
                             <p>Facturas Despachadas</p>
                         </a>
                     </li>
+                    @role('Administrator')
+                    <li>
+                        <a href="{{ url('/roles') }}">
+                            <i class="material-icons">folder_shared</i>
+                            <p>Roles</p>
+                        </a>
+                    </li>
+                    @endrole
                 </ul> <!--CIERRE DE LISTA DESORDENADA-->
             </div> <!--CIERRE DE DIV DE MENU LATERAL-->
         </div> <!--CIERRE DE DIV DE BARRA LATERAL-->

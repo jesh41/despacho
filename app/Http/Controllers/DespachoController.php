@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Facturas;
+use App\User;
+use Auth;
 
 class DespachoController extends Controller
 {
@@ -12,11 +14,44 @@ class DespachoController extends Controller
     {
         $this->middleware('auth');
     }
+    public function index()
+    {
 
+        //$fa=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->orderbyDesc('Fecha')->paginate(10);
+        $fa=null;
+        $user=User::find(Auth::user()->id);
+        if ($user->hasRole('Administrator')){
+            $fa=Facturas::where('estado_id','=',1)->orderbyDesc('Fecha')->paginate(10);
+            }
+        if ($user->hasRole('BodCM')){
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->paginate(10);
+        }
+        if ($user->hasRole('BodSD')){
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->paginate(10);
+        }
+        if ($user->hasRole('BodTC')){
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->paginate(10);
+        }
+
+        return view('home', ['es' => $fa]);
+
+    }
     public function historial()
     {
-        $fa=Facturas::where('estado_id',2)->paginate(10);
-
+        $fa=null;
+        $user=User::find(Auth::user()->id);
+        if ($user->hasRole('Administrator')){
+            $fa=Facturas::where('estado_id','=',2)->orderbyDesc('Fecha')->paginate(10);
+        }
+        if ($user->hasRole('BodCM')){
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->paginate(10);
+        }
+        if ($user->hasRole('BodSD')){
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->paginate(10);
+        }
+        if ($user->hasRole('BodTC')){
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->paginate(10);
+        }
         //orderbyDesc('Fecha')->get();
         return view('Despacho.historial', ['es' => $fa]);
 
