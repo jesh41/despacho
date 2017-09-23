@@ -18,19 +18,19 @@ class DespachoController extends Controller
     {
 
         //$fa=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->orderbyDesc('Fecha')->paginate(10);
-        $fa=null;
+       // $fa=null;
         $user=User::find(Auth::user()->id);
         if ($user->hasRole('Administrator')){
-            $fa=Facturas::where('estado_id','=',1)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',1)->orderbyDesc('Fecha')->get();
             }
         if ($user->hasRole('BodCM')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodSD')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodTC')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->get();
         }
 
         return view('home', ['es' => $fa]);
@@ -41,16 +41,16 @@ class DespachoController extends Controller
         $fa=null;
         $user=User::find(Auth::user()->id);
         if ($user->hasRole('Administrator')){
-            $fa=Facturas::where('estado_id','=',2)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',2)->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodCM')){
-            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodSD')){
-            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodTC')){
-            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->paginate(10);
+            $fa=Facturas::where('estado_id','=',2)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->get();
         }
         //orderbyDesc('Fecha')->get();
         return view('Despacho.historial', ['es' => $fa]);

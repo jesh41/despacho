@@ -66,7 +66,7 @@
                         <div class="card-content">
                             <div class="tab-content">
                                 <div class="tab-pane active table-responsive">
-                                    <table class="table table-hover table-striped" cellspacing="0" width="100%">
+                                    <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                         <thead>
                                         <tr>
                                             <th class="text-center">Factura</th>
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    {{ $es->links() }}
+
                 </div>
             </div>
         </div>

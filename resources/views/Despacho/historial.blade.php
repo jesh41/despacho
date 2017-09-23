@@ -54,6 +54,8 @@
     </nav> <!--Cierre de Barra de navegación con funciones de menu-->
 
 
+
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -62,7 +64,7 @@
                         <div class="card-content">
                             <div class="tab-content">
                                 <div class="tab-pane active table-responsive">
-                                    <table class="table table-hover table-striped" cellspacing="0" width="100%">
+                                    <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                         <thead role="row" class="odd">
                                         <tr>
                                             <th>Fecha Fac</th>
@@ -82,8 +84,6 @@
                                                 <td>{{ $fact->sucursal->nombre}}</td>
                                                 <td>{{ $fact->estado->DesEstado}}</td>
                                                 <td>{{ $fact->despacho->estado}}</td>
-
-
                                             </tr>
                                         @endforeach
 
@@ -94,11 +94,13 @@
                             </div>
                         </div>
                     </div>
-                    {{ $es->links() }}
+
                 </div>
             </div>
         </div>
     </div>
+
+
 
 
 
