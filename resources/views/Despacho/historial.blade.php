@@ -66,6 +66,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @if(!empty($fact))
                                         @foreach($es as $fact)
                                             <tr role="row" class="odd">
                                                 <td> {{ $fact->Fecha}}</td>
@@ -76,6 +77,7 @@
                                                 <td>{{ $fact->despacho->estado}}</td>
                                             </tr>
                                         @endforeach
+                                            @endif
 
 
                                         </tbody>
