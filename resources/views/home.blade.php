@@ -70,7 +70,7 @@
                                         </tr>
                                         </thead>
                                         <tbody id="tbusqueda">
-                                        @if(!empty($fact))
+                                        @if(!empty($es))
                                         @foreach($es as $fact)
                                             @if ($fact->despacho->estado=="PENDIENTE")
                                             <tr role="row" class="odd">

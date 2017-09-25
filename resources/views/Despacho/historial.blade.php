@@ -66,7 +66,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(!empty($fact))
+                                        @if(!empty($es))
                                         @foreach($es as $fact)
                                             <tr role="row" class="odd">
                                                 <td> {{ $fact->Fecha}}</td>
