@@ -43,7 +43,7 @@
 
     <div id="wrapper" class="active">
         <!-- Sidebar -->
-        <div class="sidebar" data-color="blue" data-image="{{asset('img/sidebar-4.jpg') }}"> <!--DIV DE BARRA LATERAL-->
+        <div class="sidebar" data-active-color="blue" data-background-color="white"> <!--DIV DE BARRA LATERAL-->
             <div class="logo"> <!--DIV PARA ACOMODAR LOGO EN LATERAL-->
                 <a href="{{ url('/') }}"> <!--REDIRECCION A HOME-->
                     <img src="{{asset('img/logoalvia.png') }}" class="img-responsive" alt="">
@@ -106,7 +106,7 @@
 <script src="{{asset('js/moment.min.js')}}"></script>
 <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 <script src="{{asset('js/material-dashboard.js')}}"></script>
-<script src="http://demos.creative-tim.com/material-dashboard-pro/assets/js/jquery.datatables.js"></script>
+<script src="{{asset('js/jquery.datatables.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatables').DataTable({
@@ -118,7 +118,7 @@
             responsive: true,
             language: {
                 search: "_INPUT_",
-                searchPlaceholder: "Search records",
+                searchPlaceholder: "BUSQUEDA",
             }
 
         });

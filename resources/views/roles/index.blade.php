@@ -67,7 +67,7 @@
                                 <table class="table table-hover table-striped" cellspacing="0" width="100%">
 
              <thead role="row" class="odd">
-            <tr>    <th>codigo</th>
+            <tr>    <th>Codigo</th>
                 <th>Rol</th>
                 <th>Nombre</th>
                 <th>Email</th>
