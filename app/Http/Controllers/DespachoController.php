@@ -16,9 +16,8 @@ class DespachoController extends Controller
     }
     public function index()
     {
-
         //$fa=Facturas::wheredate('Fecha', '=',Carbon::now()->format('Y-m-d'))->orderbyDesc('Fecha')->paginate(10);
-       // $fa=null;
+       $fa=null;
         $user=User::find(Auth::user()->id);
         if ($user->hasRole('Administrator')){
             $fa=Facturas::where('estado_id','=',1)->orderbyDesc('Fecha')->get();
@@ -38,7 +37,7 @@ class DespachoController extends Controller
     }
     public function historial()
     {
-       // $fa=null;
+       $fa=null;
         $user=User::find(Auth::user()->id);
         if ($user->hasRole('Administrator')){
             $fa=Facturas::select(['Fecha','Factura','Nombre','sucursal_id','CodValidoFact','estado_id'])->where('estado_id','=',2)->orderbyDesc('Fecha')->get();
