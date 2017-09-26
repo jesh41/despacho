@@ -12,6 +12,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Facturas Pendientes</a>
+
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -34,7 +35,6 @@
                         </ul>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -44,14 +44,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header" data-background-color="red">
-                            <h4 class="box-title">Facturas</h4>
-                            <div class="margin" id="botones_control">
-                                <a href="{{ url("carga") }}" class="btn btn-xs btn-primary">Actualizar</a>
-                            <!--  <a href="{{ url("/listado_usuarios") }}"  class="btn btn-xs btn-primary" >Listado Usuarios</a>-->
-                                <a href="javascript:void(0);" class="btn btn-xs btn-primary" onclick="cargar_formulario(2);">Vacio</a>
-                                <a href="javascript:void(0);" class="btn btn-xs btn-primary" onclick="cargar_formulario(3);" >Vacio</a>
-                            </div>
+                        <div class="card-header" data-background-color="red" >
+<!--                            <h4 class="box-title">Facturas</h4>-->
+                            <a href="{{ url("carga") }}" class="btn btn-xs btn-primary" ><h5>Actualizar Listado Facturas</h5></a>
                         </div>
                         <div class="card-content">
                             <div class="tab-content">
@@ -63,10 +58,7 @@
                                             <th class="text-center">Nombre</th>
                                             <th class="text-center">Sucursal</th>
                                             <th class="text-center">Estado</th>
-                                            <th class="text-center">Despacho</th>
-                                            <th class="text-center">Accion</th>
-
-
+                                            <th class="text-center">Despachar</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbusqueda">
@@ -78,29 +70,11 @@
                                                 <td align="center">{{ $fact->Nombre}}</td>
                                                 <td align="center">{{ $fact->sucursal->nombre}}</td>
                                                 <td align="center">{{ $fact->estado->DesEstado}}</td>
+
                                                 <td align="center">
-                                                    <?php
-                                                    //{{ $fact->despacho->estado}}
-                                                    switch($fact->despacho->estado){
-                                                        case "PENDIENTE":
-                                                            echo '<i class="material-icons btn-danger">close</i>';
-                                                            break;
-                                                        case "ENTREGADA":
-                                                            echo '<i class="material-icons btn-success">check</i>';
-                                                            break;
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <td align="center">
-                                                    <a id="modal-672003"
-                                                       href="/form_despacho/{{ $fact->Factura }}"
-                                                       data-target="#modal-container-829890"
-                                                       role="button"
-                                                       data-toggle="modal"
-                                                       rel="tooltip"
-                                                       title="Marcar como Entregada">
-                                                        <i class="material-icons">check_box</i>
-                                                    </a>
+                                                    <button class="btn btn-primary btn-fill btn-sm"
+                                                       onclick="test.showSwal('warning-message-and-cancel','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             @endif

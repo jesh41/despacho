@@ -20,21 +20,20 @@ class DespachoController extends Controller
        $fa=null;
         $user=User::find(Auth::user()->id);
         if ($user->hasRole('Administrator')){
-            $fa=Facturas::where('estado_id','=',1)->orderbyDesc('Fecha')->get();
+            $fa=Facturas::where('estado_id','=',1)->where('CodValidoFact','=','A')->orderbyDesc('Fecha')->get();
             }
         if ($user->hasRole('BodCM')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->get();
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 1)->where('CodValidoFact','=','A')->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodSD')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->get();
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 2)->where('CodValidoFact','=','A')->orderbyDesc('Fecha')->get();
         }
         if ($user->hasRole('BodTC')){
-            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 3)->orderbyDesc('Fecha')->get();
+            $fa=Facturas::where('estado_id','=',1)->where('sucursal_id', '=', 3)->where('CodValidoFact','=','A')->orderbyDesc('Fecha')->get();
         }
-
         return view('home', ['es' => $fa]);
-
     }
+
     public function historial()
     {
        $fa=null;
@@ -44,7 +43,6 @@ class DespachoController extends Controller
         }
         if ($user->hasRole('BodCM')){
             $fa=Facturas::select(['Fecha','Factura','Nombre','sucursal_id','CodValidoFact','estado_id'])->where('estado_id','=',2)->where('sucursal_id', '=', 1)->orderbyDesc('Fecha')->get();
-
         }
         if ($user->hasRole('BodSD')){
             $fa=Facturas::select(['Fecha','Factura','Nombre','sucursal_id','CodValidoFact','estado_id'])->where('estado_id','=',2)->where('sucursal_id', '=', 2)->orderbyDesc('Fecha')->get();
@@ -54,8 +52,8 @@ class DespachoController extends Controller
         }
         //orderbyDesc('Fecha')->get();
         return view('Despacho.historial', ['es' => $fa]);
-
     }
+
     public function formdespacho($id)
     {
         $f=Facturas::find($id);

@@ -105,8 +105,10 @@
 <!-- Material Dashboard javascript methods -->
 <script src="{{asset('js/moment.min.js')}}"></script>
 <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
+<script src="{{asset('js/sweetalert2.js')}}"></script>
 <script src="{{asset('js/material-dashboard.js')}}"></script>
 <script src="{{asset('js/jquery.datatables.js')}}"></script>
+<script src="{{asset('js/tes.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatables').DataTable({
