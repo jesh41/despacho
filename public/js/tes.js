@@ -53,9 +53,11 @@ test={
                 '<input type="hidden" name="id_factura" value='+factura+'>'+'<button type="submit" class="btn btn-success">Despachar</button>'+
                 '</form>',
                 type: 'warning',
-
                 showCancelButton: true,
                 showConfirmButton: false,
+                allowOutsideClick:false,
+                allowEscapeKey:false,
+                allowEnterKey:false,
                // confirmButtonText: 'Si',
                // cancelButtonText: 'No',
                // confirmButtonClass: "btn btn-success",
