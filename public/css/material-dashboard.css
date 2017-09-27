@@ -6255,7 +6255,7 @@ h2.title {
     bottom: 0;
     left: 0;
     z-index: 2;
-    width: 260px;
+    width: 220px;
     background: #FFFFFF;
     box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
@@ -6268,7 +6268,7 @@ h2.title {
     position: relative;
     height: calc(100vh - 75px);
     overflow: auto;
-    width: 260px;
+    width: 220px;
     z-index: 4;
     padding-bottom: 30px;
 }
@@ -6717,7 +6717,7 @@ h2.title {
 .main-panel {
     position: relative;
     float: right;
-    width: calc(100% - 260px);
+    width: calc(100% - 220px);
     -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -6818,7 +6818,7 @@ h2.title {
         opacity: 0;
     }
     .sidebar-mini .sidebar:hover {
-        width: 260px;
+        width: 220px;
     }
     .sidebar-mini .sidebar:hover .logo a.logo-normal {
         opacity: 1;
@@ -6829,7 +6829,7 @@ h2.title {
         transform: translate3d(0px, 0, 0);
     }
     .sidebar-mini .sidebar:hover .sidebar-wrapper {
-        width: 260px;
+        width: 220px;
     }
     .sidebar-mini .sidebar:hover .sidebar-wrapper>.nav li>a p,
     .sidebar-mini .sidebar:hover .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a .sidebar-normal,
@@ -11081,8 +11081,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-    background-color: #9c27b0;
-    border-color: #9c27b0;
+    background-color: #f44336;
+    border-color: #f44336;
     color: #FFFFFF;
     box-shadow: 0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2);
 }

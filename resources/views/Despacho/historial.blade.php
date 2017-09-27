@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button> <!--Cierre de Boton para descubrir la sidebar-->
-                <a class="navbar-brand" href="{{ url('/catempleado') }}">Facturas Despachadas</a>
+                <a class="navbar-brand" href="{{ url('/catempleado') }}">FACTURAS DESPACHADAS</a>
             </div> <!-- Cierre de Barra de Navegacion Responsive Izquierda-->
 
             <div class="collapse navbar-collapse"> <!--Menu para cierre de sesión-->
@@ -51,6 +51,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        <div class="card-header" data-background-color="red" >
+                            <a href="#" ><h5>Listado de Facturas</h5></a>
+                        </div>
                         <div class="card-content">
                             <div class="tab-content">
                                 <div class="tab-pane active table-responsive">

@@ -54,20 +54,20 @@
                 <ul class="nav"> <!--LISTA DESORDENADA-->
                     <li>
                         <a href="{{ url('/') }}">
-                            <i class="material-icons">home</i>
+                            <i class="material-icons">assignment</i>
                             <p>Facturas Pendientes</p>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('/historial') }}">
-                            <i class="material-icons">folder_shared</i>
+                            <i class="material-icons">library_books</i>
                             <p>Facturas Despachadas</p>
                         </a>
                     </li>
                     @role('Administrator')
                     <li>
                         <a href="{{ url('/roles') }}">
-                            <i class="material-icons">folder_shared</i>
+                            <i class="material-icons">people</i>
                             <p>Roles</p>
                         </a>
                     </li>
@@ -114,8 +114,8 @@
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
+                [5,10, 25, 50, -1],
+                [5,10, 25, 50, "All"]
             ],
             responsive: true,
             language: {
@@ -148,7 +148,7 @@
             alert('You clicked on Like button');
         });
 
-        $('.card .material-datatables label').addClass('form-group');
+        $('.card .material-datatables label .pagination').addClass('form-group');
     });
 </script>
 

@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Facturas Pendientes</a>
+                <a class="navbar-brand" href="#">FACTURAS PENDIENTES</a>
 
             </div>
             <div class="collapse navbar-collapse">
@@ -21,7 +21,7 @@
                             {{ Auth::user()->name }}
                             <i class="material-icons">person</i>
                         </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu navbar-danger" role="menu">
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -45,8 +45,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="red" >
-<!--                            <h4 class="box-title">Facturas</h4>-->
-                            <a href="{{ url("carga") }}" class="btn btn-xs btn-primary" ><h5>Actualizar Listado Facturas</h5></a>
+                            <a href="{{ url("carga") }}" ><h5><i class="material-icons">refresh</i>Actualizar Facturas</h5></a>
                         </div>
                         <div class="card-content">
                             <div class="tab-content">
@@ -72,7 +71,7 @@
                                                 <td align="center">{{ $fact->estado->DesEstado}}</td>
 
                                                 <td align="center">
-                                                    <button class="btn btn-primary btn-fill btn-sm"
+                                                    <button class="btn btn-danger btn-fill btn-sm"
                                                        onclick="test.showSwal('warning-message-and-cancel','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
                                                     </button>
                                                 </td>
