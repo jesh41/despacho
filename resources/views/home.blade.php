@@ -72,7 +72,7 @@
 
                                                 <td align="center">
                                                     <button class="btn btn-danger btn-fill btn-sm"
-                                                       onclick="test.showSwal('warning-message-and-cancel','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
+                                                       onclick="test.showSwal('desp','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
                                                     </button>
                                                 </td>
                                             </tr>

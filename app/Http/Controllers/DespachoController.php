@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Facturas;
 use App\User;
 use Auth;
+use Response;
 
 class DespachoController extends Controller
 {
@@ -80,8 +81,8 @@ class DespachoController extends Controller
         }
         $des->save();
 
-
-        return back()->with($notificacion);
+    return Response::json($notificacion);
+        //return back()->with($notificacion);
     }
 
 

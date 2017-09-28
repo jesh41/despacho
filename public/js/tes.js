@@ -1,3 +1,36 @@
+$(document).on("submit",".formentrada",function(e){
+    e.preventDefault();
+    var quien=$(this).attr("id");
+    var formu=$(this);
+    var varurl="";
+    if(quien=="CONFIRMAR_DESPACHO"){  var varurl=$(this).attr("action");  var div_resul="capa_formularios";  }//listo
+    $("#"+div_resul+"").html( $("#cargador_empresa").html());
+    $.ajax({
+        // la URL para la petición
+        url : varurl,
+        data : formu.serialize(),
+        type : 'POST',
+        dataType : 'html',
+        success : function(resul) {
+            console.log(e);
+            swal({
+                title: "DESPACHADA!",
+                text: "",
+                timer: 1000,
+                showConfirmButton: false
+            }).catch(swal.noop);
+        },
+        error : function(xhr, status) {
+            console.log(e);
+            swal("Error deleting!", "Please try again", "error");
+        }
+
+    });
+
+})
+
+
+
 
 test={
     showSwal: function(type,factura,token) {
@@ -8,24 +41,7 @@ test={
                 confirmButtonClass: "btn btn-success"
             });
 
-        } else if (type == 'title-and-text') {
-            swal({
-                title: "Here's a message!",
-                text: "It's pretty, isn't it?",
-                buttonsStyling: false,
-                confirmButtonClass: "btn btn-info"
-            });
-
-        } else if (type == 'success-message') {
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                buttonsStyling: false,
-                confirmButtonClass: "btn btn-success",
-                type: "success"
-            });
-
-        } else if (type == 'warning-message-and-confirmation') {
+        }  else if (type == 'warning-message-and-confirmation') {
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -42,76 +58,23 @@ test={
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
-
                 })
             });
-        } else if (type == 'warning-message-and-cancel') {
+        } else if (type == 'desp') {
             swal({
                 title: 'Desea despachar la factura '+ factura+ '?',
-                html: '<form method="post" action="/despachar" id="CONFIRMAR_DESPACHO">' +
+                html: '<form method="post" action="/despachar" id="CONFIRMAR_DESPACHO" class="formentrada">' +
                 '<input type="hidden" name="_token"  value='+token+'>' +
-                '<input type="hidden" name="id_factura" value='+factura+'>'+'<button type="submit" class="btn btn-success">Despachar</button>'+
+                '<input type="hidden" name="id_factura" value='+factura+'>'+'<button type="submit" class="btn btn-success remove">Despachar</button>'+
                 '</form>',
                 type: 'warning',
                 showCancelButton: true,
                 showConfirmButton: false,
                 allowOutsideClick:false,
                 allowEscapeKey:false,
-                allowEnterKey:false,
-               // confirmButtonText: 'Si',
-               // cancelButtonText: 'No',
-               // confirmButtonClass: "btn btn-success",
                 cancelButtonClass: "btn btn-danger",
                 buttonsStyling: false
-            });
-                   // title: 'Despachada !',
-                   // html: '<form method="post" action="/despachar" id="CONFIRMAR_DESPACHO">' +
-                  //      '<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">' +
-                    //    '<input type="hidden" name="id_factura" value='+factura+'>'+'<button type="submit" class="btn btn-successt">Despachar</button>'+
-                      //  '</form>',
-              //      type: 'success',
-                //    confirmButtonClass: "btn btn-success",
-                  //  buttonsStyling: false
-                    //location:'/form_despacho/'+factura
-                    // url:'/form_despacho/factura'
-        } else if (type == 'custom-html') {
-            swal({
-                title: 'HTML example',
-                buttonsStyling: false,
-                confirmButtonClass: "btn btn-success",
-                html: 'You can use <b>bold text</b>, ' +
-                '<a href="http://github.com">links</a> ' +
-                'and other HTML tags'
-            });
-
-        } else if (type == 'auto-close') {
-            swal({
-                title: "Auto close alert!",
-                text: "I will close in 2 seconds.",
-                timer: 2000,
-                showConfirmButton: false
-            });
-        } else if (type == 'input-field') {
-            swal({
-                title: 'Input something',
-                html: '<div class="form-group">' +
-                '<input id="input-field" type="text" class="form-control" />' +
-                '</div>',
-                showCancelButton: true,
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: false
-            }).then(function(result) {
-                swal({
-                    type: 'success',
-                    html: 'You entered: <strong>' +
-                    $('#input-field').val() +
-                    '</strong>',
-                    confirmButtonClass: 'btn btn-success',
-                    buttonsStyling: false
-
-                })
-            }).catch(swal.noop)
+            }).catch(swal.noop);
         }
     }
 }
