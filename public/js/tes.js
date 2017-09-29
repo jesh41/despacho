@@ -13,12 +13,15 @@ $(document).on("submit",".formentrada",function(e){
         dataType : 'html',
         success : function(resul) {
             console.log(e);
+            var table = $('#datatables').DataTable();
+            table.row($tr).remove().draw();
             swal({
                 title: "DESPACHADA!",
                 text: "",
                 timer: 1000,
                 showConfirmButton: false
             }).catch(swal.noop);
+
         },
         error : function(xhr, status) {
             console.log(e);
@@ -61,6 +64,7 @@ test={
                 })
             });
         } else if (type == 'desp') {
+            $tr = $(this).closest('tr');
             swal({
                 title: 'Desea despachar la factura '+ factura+ '?',
                 html: '<form method="post" action="/despachar" id="CONFIRMAR_DESPACHO" class="formentrada">' +
@@ -75,6 +79,7 @@ test={
                 cancelButtonClass: "btn btn-danger",
                 buttonsStyling: false
             }).catch(swal.noop);
+
         }
     }
 }

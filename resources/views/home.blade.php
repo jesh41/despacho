@@ -71,7 +71,7 @@
                                                 <td align="center">{{ $fact->estado->DesEstado}}</td>
 
                                                 <td align="center">
-                                                    <button class="btn btn-danger btn-fill btn-sm"
+                                                    <button class="btn btn-danger btn-fill btn-sm select"
                                                        onclick="test.showSwal('desp','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
                                                     </button>
                                                 </td>

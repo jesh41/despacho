@@ -138,6 +138,11 @@
             table.row($tr).remove().draw();
             e.preventDefault();
         });
+        //ernestp
+        table.on('click', '.select', function(e) {
+            $tr = $(this).closest('tr');
+            console.log($tr);
+        });
 
         //Like record
         table.on('click', '.like', function() {
