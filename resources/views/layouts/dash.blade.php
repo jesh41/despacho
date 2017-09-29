@@ -121,7 +121,7 @@
                 zeroRecords: "NO EXISTE EL REGISTRO SOLICITADO",
                 info: "pagina _PAGE_ de _PAGES_",
                 infoEmpty: "No hay registros",
-                infoFiltered: "(filtered from _MAX_ total records)",
+                infoFiltered: "(filtrado de _MAX_ total facturas)",
                 paginate: {
                     first:      "Primero",
                     previous:   "Anterior",
