@@ -117,6 +117,17 @@
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "BUSQUEDA",
+                lengthMenu: "Mostrar _MENU_ facturas por pagina",
+                zeroRecords: "NO EXISTE EL REGISTRO SOLICITADO",
+                info: "pagina _PAGE_ de _PAGES_",
+                infoEmpty: "No hay registros",
+                infoFiltered: "(filtered from _MAX_ total records)",
+                paginate: {
+                    first:      "Primero",
+                    previous:   "Anterior",
+                    next:       "Siguiente",
+                    last:       "Ultimo"
+                }
             }
 
         });
