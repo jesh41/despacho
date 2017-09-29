@@ -141,7 +141,7 @@
         //ernestp
         table.on('click', '.select', function(e) {
             $tr = $(this).closest('tr');
-            console.log($tr);
+            //console.log($tr);
         });
 
         //Like record

@@ -12,7 +12,7 @@ $(document).on("submit",".formentrada",function(e){
         type : 'POST',
         dataType : 'html',
         success : function(resul) {
-            console.log(e);
+           // console.log(e);
             var table = $('#datatables').DataTable();
             table.row($tr).remove().draw();
             swal({
