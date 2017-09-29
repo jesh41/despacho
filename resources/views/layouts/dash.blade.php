@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="{{asset('img/logo.png') }}"/>
@@ -36,10 +36,6 @@
         </div>
 
     </div>
-
-
-
-
 
     <div id="wrapper" class="active">
         <!-- Sidebar -->

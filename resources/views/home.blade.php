@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">FACTURAS PENDIENTES</a>
+                <a class="navbar-brand" href="#">LISTADO DE FACTURAS PENDIENTE DE DESPACHO</a>
 
             </div>
             <div class="collapse navbar-collapse">
@@ -54,29 +54,29 @@
                                         <thead>
                                         <tr>
                                             <th class="text-center">Factura</th>
+                                            <th class="text-center">Fecha</th>
+
                                             <th class="text-center">Nombre</th>
                                             <th class="text-center">Sucursal</th>
-                                            <th class="text-center">Estado</th>
                                             <th class="text-center">Despachar</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbusqueda">
                                         @if(!empty($es))
                                         @foreach($es as $fact)
-                                            @if ($fact->despacho->estado=="PENDIENTE")
+
                                             <tr role="row" class="odd">
-                                                <td align="right">{{ $fact->Factura }}</td>
+                                                <td align="center">{{ $fact->Factura }}</td>
+                                                <td align="center">{{  Carbon\Carbon::parse($fact->Fecha)->format('d-M-y g:i A')}}</td>
                                                 <td align="center">{{ $fact->Nombre}}</td>
                                                 <td align="center">{{ $fact->sucursal->nombre}}</td>
-                                                <td align="center">{{ $fact->estado->DesEstado}}</td>
-
                                                 <td align="center">
                                                     <button class="btn btn-danger btn-fill btn-sm select"
                                                        onclick="test.showSwal('desp','{{ $fact->Factura }}','<?php echo csrf_token(); ?>')"> <i class="material-icons">check_box</i>
                                                     </button>
                                                 </td>
                                             </tr>
-                                            @endif
+
                                         @endforeach
                                             @endif
                                         </tbody>

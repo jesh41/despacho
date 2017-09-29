@@ -52,7 +52,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="red" >
-                            <a href="#" ><h5>Listado de Facturas</h5></a>
+                            <a href="#" ><h5>LISTADO DE FACTURAS DESPACHADAS</h5></a>
                         </div>
                         <div class="card-content">
                             <div class="tab-content">
@@ -60,23 +60,24 @@
                                     <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                         <thead role="row" class="odd">
                                         <tr>
-                                            <th>Fecha Fac</th>
                                             <th>Factura</th>
+                                            <th>Fecha Factura</th>
                                             <th>Nombre</th>
+                                            <th>Fecha Entregado</th>
                                             <th>Sucursal</th>
                                             <th>Estado</th>
-                                            <th>Despacho</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @if(!empty($es))
                                         @foreach($es as $fact)
                                             <tr role="row" class="odd">
-                                                <td> {{ $fact->Fecha}}</td>
-                                                <td>{{ $fact->Factura }}</td>
+                                                <td align="center">{{ $fact->Factura }}</td>
+                                                <td> {{  Carbon\Carbon::parse($fact->Fecha)->format('d-M-y g:i A')}}</td>
                                                 <td>{{ $fact->Nombre}}</td>
+                                                <td>{{ Carbon\Carbon::parse($fact->updated_at)->format('d-M-y g:i A') }}</td>
+
                                                 <td>{{ $fact->sucursal->nombre}}</td>
-                                                <td>{{ $fact->estado->DesEstado}}</td>
                                                 <td>{{ $fact->despacho->estado}}</td>
                                             </tr>
                                         @endforeach
