@@ -110,8 +110,8 @@
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
-                [5,10, 25, 50, -1],
-                [5,10, 25, 50, "All"]
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
             ],
             responsive: true,
             language: {
@@ -124,8 +124,8 @@
                 infoFiltered: "(filtrado de _MAX_ total facturas)",
                 paginate: {
                     first:      "Primero",
-                    previous:   "Anterior",
-                    next:       "Siguiente",
+                    previous:   "Ant..",
+                    next:       "Sig..",
                     last:       "Ultimo"
                 }
             }

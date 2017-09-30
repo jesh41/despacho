@@ -55,7 +55,6 @@
                                         <tr>
                                             <th class="text-center">Factura</th>
                                             <th class="text-center">Fecha</th>
-
                                             <th class="text-center">Nombre</th>
                                             <th class="text-center">Sucursal</th>
                                             <th class="text-center">Despachar</th>
